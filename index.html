@@ -1,175 +1,943 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Ding Dong Song in history</title>
-        <style>
-        * {
-            /* border: 1px solid #000; */
-        }
+<html>
+  <head>
+    <title>Air Astana & Marathon</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 500px;
+      }
 
-        html {
-            background-color: #e3b6b6;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+      html, body {
+        height: inherit;
+        margin: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
 
-        body {
-            background-color: #a3aade;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
+      /* <iframe width="870px" height="750px" src="http://127.0.0.1:5500/TEST/index%20copy%2010.html"></iframe> */
+      /* above for inserting*/
     </style>
-    </head>
-    <body>
-        <center>
-            <table>
-                <tr>
-                    <td>
-                        <h2 align="center">Ding Dong Song in history of Spain</h2>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img width="500px"
-                            src="https://libcom.org/files/images/history/Spanish-civil-war.jpg"
-                            alt="">
-                    </td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td>
-                        <div style="max-width: 300px;">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <span>
-                                            <h1>
-                                                The Ding Dong Song
-                                            </h1>
-                                        </span>
-                                        <br>
-                                        <span>
-                                            Oh...you touch my tra la la
-                                            Mmm...my ding ding dong
-                                            (Mmm!)
-                                            La
-                                            La la la
-                                            La la la
-                                            La la la la la la
-                                            La
-                                            La la la
-                                            La la la
-                                            La la la la la la
-                                            Oh...you touch my tra la la
-                                            La
-                                            La la la
-                                            La la la
-                                            La la la la la la
-                                            La (Mmm...my ding ding dong)
-                                            La la la
-                                            La la la
-                                            La la la la la la
-                                            La
-                                            La la la
-                                            La la la
-                                            La la la la la la
-                                            La
-                                            La la la
-                                            La la la
-                                            La la la la la la
-                                            Deep in the night
-                                            I'm looking for some fun
-                                            Deep in the night
-                                            I'm looking for some love
-                                            Deep in the night
-                                            I'm looking for some fun
-                                            Deep in the night
-                                            I'm looking for some...
-                                            You tease me
-                                            Oh, please me
-                                            I want you to be my love toy
-                                            Come near me
-                                            Don't fear me
-                                            I just can't get enough of you, boy
-                                            Oh...you touch my tra la la
-                                            La
-                                            La la la
-                                            La la la
-                                            La la la la la la
-                                            La (Mmm...my ding ding dong)
-                                            La la la
-                                            La la la
-                                            La la la la la la
-                                            La (Oh...you touch my tra la…
-                                        </span>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td>
-                        <div style="max-width: 300px;">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <span style="font-family: Arial,
-                                            Helvetica, sans-serif; font-size:
-                                            12px; font-weight: 600; line-height:
-                                            1.5;">
-                                            <span style="font-size: 20px;">A</span>ncient
-                                            spanish song originating in ancient
-                                            rome.
-                                            The origin of this song takes from
-                                            military action during civil war in
-                                            Spain between communist and
-                                            monarchists. In 1939 after storming
-                                            the orphanage house, the kids begin
-                                            to sang the Ding Dong Song.
-                                        </span>
+  </head>
 
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td>
-                        <img align="center" width="400px"
-                            src="https://secure.i.telegraph.co.uk/multimedia/archive/03559/boys2_3559256b.jpg"
-                            alt="">
-                    </td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td>
-                        <table>
-                            <tr>
-                                <div style="max-width: 300px;">
-                                    <span style="font-family: Arial,
-                                    Helvetica, sans-serif; font-size:
-                                    12px; font-weight: 600; line-height:
-                                    1.5;">
-                                        <span style="font-size: 20px;">A</span>fter the war, the song got popularity and developed into pop song in USA
-                                    </span>
-                                </div>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </center>
-    </body>
+  <body>
+    <h1>Какой марафон вы бежите в этом году?</h1>
+    <div id="map"></div>
+    <br />
+    <div >
+      <h3 style="text-align:center;">
+        Ищи и покупай перелеты на марафоны. Если вы участвуете в марафоне или
+        хотите посмотреть его в качестве зрителя, мы поможем вам найти лучшие
+        направления и перелеты.
+      </h3>
+    </div>
+
+    <script>
+      function initMap() {
+        // Styles a map in night mode.
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: {
+            lat: 38.5598,
+            lng: 68.787
+          },
+          zoom: 3,
+          disableDefaultUI: true,
+          maxZoom: 5,
+          minZoom: 3,
+
+          zoomControl: true,
+          scaleControl: true,
+          gestureHandling: 'greedy',
+          styles: [
+            {
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#f5f5f5"
+                }
+              ]
+            },
+            {
+              elementType: "labels",
+              stylers: [
+                {
+                  visibility: "off"
+                }
+              ]
+            },
+            {
+              elementType: "labels.icon",
+              stylers: [
+                {
+                  visibility: "off"
+                }
+              ]
+            },
+            {
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#616161"
+                }
+              ]
+            },
+            {
+              elementType: "labels.text.stroke",
+              stylers: [
+                {
+                  color: "#f5f5f5"
+                }
+              ]
+            },
+            {
+              featureType: "administrative.country",
+              elementType: "geometry.fill",
+              stylers: [
+                {
+                  color: "#000000"
+                },
+                {
+                  visibility: "on"
+                }
+              ]
+            },
+            {
+              featureType: "administrative.country",
+              elementType: "geometry.stroke",
+              stylers: [
+                {
+                  color: "#000000"
+                },
+                {
+                  visibility: "on"
+                },
+                {
+                  weight: 0.4
+                }
+              ]
+            },
+            {
+              featureType: "administrative.land_parcel",
+              stylers: [
+                {
+                  visibility: "off"
+                }
+              ]
+            },
+            {
+              featureType: "administrative.land_parcel",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#bdbdbd"
+                }
+              ]
+            },
+            {
+              featureType: "administrative.neighborhood",
+              stylers: [
+                {
+                  visibility: "off"
+                }
+              ]
+            },
+            {
+              featureType: "administrative.province",
+              stylers: [
+                {
+                  visibility: "off"
+                }
+              ]
+            },
+            {
+              featureType: "poi",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#eeeeee"
+                }
+              ]
+            },
+            {
+              featureType: "poi",
+              elementType: "labels.text",
+              stylers: [
+                {
+                  visibility: "off"
+                }
+              ]
+            },
+            {
+              featureType: "poi",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#757575"
+                }
+              ]
+            },
+            {
+              featureType: "poi.business",
+              stylers: [
+                {
+                  visibility: "off"
+                }
+              ]
+            },
+            {
+              featureType: "poi.park",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#e5e5e5"
+                }
+              ]
+            },
+            {
+              featureType: "poi.park",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#9e9e9e"
+                }
+              ]
+            },
+            {
+              featureType: "road",
+              stylers: [
+                {
+                  visibility: "off"
+                }
+              ]
+            },
+            {
+              featureType: "road",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#ffffff"
+                }
+              ]
+            },
+            {
+              featureType: "road",
+              elementType: "labels.icon",
+              stylers: [
+                {
+                  visibility: "off"
+                }
+              ]
+            },
+            {
+              featureType: "road.arterial",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#757575"
+                }
+              ]
+            },
+            {
+              featureType: "road.highway",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#dadada"
+                }
+              ]
+            },
+            {
+              featureType: "road.highway",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#616161"
+                }
+              ]
+            },
+            {
+              featureType: "road.local",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#9e9e9e"
+                }
+              ]
+            },
+            {
+              featureType: "transit.line",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#e5e5e5"
+                }
+              ]
+            },
+            {
+              featureType: "transit.station",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#eeeeee"
+                }
+              ]
+            },
+            {
+              featureType: "transit.station.airport",
+              elementType: "geometry.fill",
+              stylers: [
+                {
+                  color: "#ff0000"
+                },
+                {
+                  visibility: "on"
+                }
+              ]
+            },
+            {
+              featureType: "transit.station.airport",
+              elementType: "geometry.stroke",
+              stylers: [
+                {
+                  color: "#ff0000"
+                },
+                {
+                  visibility: "on"
+                }
+              ]
+            },
+            {
+              featureType: "water",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#c9c9c9"
+                }
+              ]
+            },
+            {
+              featureType: "water",
+              elementType: "geometry.fill",
+              stylers: [
+                {
+                  color: "#d0e2f3"
+                },
+                {
+                  visibility: "on"
+                }
+              ]
+            },
+            {
+              featureType: "water",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#9e9e9e"
+                }
+              ]
+            }
+          ]
+        });
+
+        var contentString =
+          '<p style="text-align:center;">Almaty Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Almaty</p>' +
+          '<p style="text-align:center;">19 April 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 21, 10</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/TSE/destination/ALA">Забронировать билет</a></p>';
+
+
+          var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position: {
+            lat: 43.222,
+            lng: 76.8512
+          }, //	Almaty
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Alamty"
+        });
+        marker.addListener("click", function() {
+          infowindow.open(map, marker);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString1 =
+          '<p style="text-align:center;">Astana Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Nur-Sultan</p>' +
+          '<p style="text-align:center;">6 September 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 10</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/TSE">Забронировать билет</a></p>';
+        var infowindow1 = new google.maps.InfoWindow({
+          content: contentString1
+        });
+        var marker1 = new google.maps.Marker({
+          position: {
+            lat: 51.1605,
+            lng: 71.4704
+          }, //  Nur-Sultan
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Nur-Sultan",
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          }
+        });
+        marker1.addListener("click", function() {
+          infowindow1.open(map, marker1);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString2 =
+          '<p style="text-align:center;">Shymkent Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Shymkent</p>' +
+          '<p style="text-align:center;">27 September 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 21, 10, 5 </p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/CIT">Забронировать билет</a></p>';
+        var infowindow2 = new google.maps.InfoWindow({
+          content: contentString2
+        });
+        var marker2 = new google.maps.Marker({
+          position: {
+            lat: 42.3417,
+            lng: 69.5901
+          }, //  Shymkent
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Shymkent"
+        });
+        marker2.addListener("click", function() {
+          infowindow2.open(map, marker2);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString3 =
+          '<p style="text-align:center;">Istanbul Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Istanbul</p>' +
+          '<p style="text-align:center;">8 November 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 15, 8</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/IST">Забронировать билет</a></p>';
+        var infowindow3 = new google.maps.InfoWindow({
+          content: contentString3
+        });
+        var marker3 = new google.maps.Marker({
+          position: {
+            lat: 41.0082,
+            lng: 28.9784
+          }, //  Istanbul
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "istanbul "
+        });
+        marker3.addListener("click", function() {
+          infowindow3.open(map, marker3);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString4 =
+          '<p style="text-align:center;">New Delhi Marathon </p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Delhi</p>' +
+          '<p style="text-align:center;">23 February 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 21, 10, 5</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/DEL">Забронировать билет</a></p>';
+        var infowindow4 = new google.maps.InfoWindow({
+          content: contentString4
+        });
+        var marker4 = new google.maps.Marker({
+          position: {
+            lat: 28.7041,
+            lng: 77.1025
+          }, //  Delhi
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Delhi "
+        });
+        marker4.addListener("click", function() {
+          infowindow4.open(map, marker4);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString5 =
+          '<p style="text-align:center;">Beijing Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Beijing</p>' +
+          '<p style="text-align:center;">TBC 2020</p>' +
+          '<p style="text-align:center;">Distances: 42</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/PEK">Забронировать билет</a></p>';
+        var infowindow5 = new google.maps.InfoWindow({
+          content: contentString5
+        });
+        var marker5 = new google.maps.Marker({
+          position: {
+            lat: 39.9042,
+            lng: 116.4074
+          }, //  Beijing
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Beijing "
+        });
+        marker5.addListener("click", function() {
+          infowindow5.open(map, marker5);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString6 =
+          '<p style="text-align:center;">Seoul Marathon </p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Seoul</p>' +
+          '<p style="text-align:center;">22 March 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 10</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/ICN">Забронировать билет</a></p>';
+        var infowindow6 = new google.maps.InfoWindow({
+          content: contentString6
+        });
+        var marker6 = new google.maps.Marker({
+          position: {
+            lat: 37.5665,
+            lng: 126.978
+          }, //  Seoul
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Seoul "
+        });
+        marker6.addListener("click", function() {
+          infowindow6.open(map, marker6);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString7 =
+          '<p style="text-align:center;">Bangkok Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Bangkok</p>' +
+          '<p style="text-align:center;">TBC November 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 21, 10, 5</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/BKK">Забронировать билет</a></p>';
+        var infowindow7 = new google.maps.InfoWindow({
+          content: contentString7
+        });
+        var marker7 = new google.maps.Marker({
+          position: {
+            lat: 13.7563,
+            lng: 100.5018
+          }, //  Bangkok
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Bangkok "
+        });
+        marker7.addListener("click", function() {
+          infowindow7.open(map, marker7);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString8 =
+          '<p style="text-align:center;">Kuala Lumpur Standard Chartered Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Kuala-Lumpur</p>' +
+          '<p style="text-align:center;">TBC September 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 21, 10, 5</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/KUL">Забронировать билет</a></p>';
+        var infowindow8 = new google.maps.InfoWindow({
+          content: contentString8
+        });
+        var marker8 = new google.maps.Marker({
+          position: {
+            lat: 3.139,
+            lng: 101.6869
+          }, //  Kuala-Lumpur
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Kuala-Lumpur "
+        });
+        marker8.addListener("click", function() {
+          infowindow8.open(map, marker8);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString9 =
+          '<p style="text-align:center;">Wizz Air Kyiv City Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Kyev</p>' +
+          '<p style="text-align:center;">24-25 October 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 21, 10, 4.2</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/KBP">Забронировать билет</a></p>';
+        var infowindow9 = new google.maps.InfoWindow({
+          content: contentString9
+        });
+        var marker9 = new google.maps.Marker({
+          position: {
+            lat: 50.4501,
+            lng: 30.5234
+          }, //  Kyev
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Kyev "
+        });
+        marker9.addListener("click", function() {
+          infowindow9.open(map, marker9);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString10 =
+          '<p style="text-align:center;">Istanbul Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Istanbul</p>' +
+          '<p style="text-align:center;">8 November 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 15, 8</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/TBS">Забронировать билет</a></p>';
+        var infowindow10 = new google.maps.InfoWindow({
+          content: contentString10
+        });
+        var marker10 = new google.maps.Marker({
+          position: {
+            lat: 41.7151,
+            lng: 44.8271
+          }, //  Tbilisi
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Tbilisi "
+        });
+        marker10.addListener("click", function() {
+          infowindow10.open(map, marker10);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString11 =
+          '<p style="text-align:center;">Moscow Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Moscow</p>' +
+          '<p style="text-align:center;">20 September 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 10</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/MOW">Забронировать билет</a></p>';
+        var infowindow11 = new google.maps.InfoWindow({
+          content: contentString11
+        });
+        var marker11 = new google.maps.Marker({
+          position: {
+            lat: 55.7558,
+            lng: 37.6173
+          }, //  Moscow
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Moscow "
+        });
+        marker11.addListener("click", function() {
+          infowindow11.open(map, marker11);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString12 =
+          '<p style="text-align:center;">White Nights International Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Saint Petersburg</p>' +
+          '<p style="text-align:center;">28 June 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 10</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/LED">Забронировать билет</a></p>';
+        var infowindow12 = new google.maps.InfoWindow({
+          content: contentString12
+        });
+        var marker12 = new google.maps.Marker({
+          position: {
+            lat: 59.9343,
+            lng: 30.3351
+          }, //  Saint Petersburg
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Saint Petersburg "
+        });
+        marker12.addListener("click", function() {
+          infowindow12.open(map, marker12);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString13 =
+          '<p style="text-align:center;">Siberian International Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Omsk </p>' +
+          '<p style="text-align:center;">1 August 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 21, 10, 3</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/OMS">Забронировать билет</a></p>';
+        var infowindow13 = new google.maps.InfoWindow({
+          content: contentString13
+        });
+        var marker13 = new google.maps.Marker({
+          position: {
+            lat: 54.9885,
+            lng: 73.3242
+          }, //  Omsk
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Omsk "
+        });
+        marker13.addListener("click", function() {
+          infowindow13.open(map, marker13);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString14 =
+          '<p style="text-align:center;">Baku Marathon </p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Baku </p>' +
+          '<p style="text-align:center;">1 May 2020</p>' +
+          '<p style="text-align:center;">Distances: 21</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/GYD">Забронировать билет</a></p>';
+        var infowindow14 = new google.maps.InfoWindow({
+          content: contentString14
+        });
+        var marker14 = new google.maps.Marker({
+          position: {
+            lat: 40.4093,
+            lng: 49.8671
+          }, //  Azerbaijan
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Azerbaijan "
+        });
+        marker14.addListener("click", function() {
+          infowindow14.open(map, marker14);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString15 =
+          '<p style="text-align:center;">Standard Chartered Dubai Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Dubai</p>' +
+          '<p style="text-align:center;">24 January 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 10, 4</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/DXB">Забронировать билет</a></p>';
+        var infowindow15 = new google.maps.InfoWindow({
+          content: contentString15
+        });
+        var marker15 = new google.maps.Marker({
+          position: {
+            lat: 25.2048,
+            lng: 55.2708
+          }, //  UAE
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Dubai"
+        });
+        marker15.addListener("click", function() {
+          infowindow15.open(map, marker15);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString16 =
+          '<p style="text-align:center;">Dushanbe International Half Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Dushanbe</p>' +
+          '<p style="text-align:center;">18 April 2020</p>' +
+          '<p style="text-align:center;">Distances: 21</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/DYU">Забронировать билет</a></p>';
+        var infowindow16 = new google.maps.InfoWindow({
+          content: contentString16
+        });
+        var marker16 = new google.maps.Marker({
+          position: {
+            lat: 38.5598,
+            lng: 68.787
+          }, //  Tajikistan
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Dushanbe"
+        });
+        marker16.addListener("click", function() {
+          infowindow16.open(map, marker16);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString17 =
+          '<p style="text-align:center;">Virgin Money London Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">London</p>' +
+          '<p style="text-align:center;">26 April 2020</p>' +
+          '<p style="text-align:center;">Distances: 42</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/LHR">Забронировать билет</a></p>';
+        var infowindow17 = new google.maps.InfoWindow({
+          content: contentString17
+        });
+        var marker17 = new google.maps.Marker({
+          position: {
+            lat: 51.5074,
+            lng: 0.1278
+          }, //  London
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "London"
+        });
+        marker17.addListener("click", function() {
+          infowindow17.open(map, marker17);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString18 =
+          '<p style="text-align:center;">Schneider Electric Marathon de Paris</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Paris</p>' +
+          '<p style="text-align:center;">5 April 2020</p>' +
+          '<p style="text-align:center;">Distances: 42</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/CDG">Забронировать билет</a></p>';
+        var infowindow18 = new google.maps.InfoWindow({
+          content: contentString18
+        });
+        var marker18 = new google.maps.Marker({
+          position: {
+            lat: 48.8566,
+            lng: 2.3522
+          }, //  France
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Paris"
+        });
+        marker18.addListener("click", function() {
+          infowindow18.open(map, marker18);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString19 =
+          '<p style="text-align:center;">Frankfurt Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Frankfurt </p>' +
+          '<p style="text-align:center;">25 October 2020</p>' +
+          '<p style="text-align:center;">Distances: 42</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/FRA">Забронировать билет</a></p>';
+        var infowindow19 = new google.maps.InfoWindow({
+          content: contentString19
+        });
+        var marker19 = new google.maps.Marker({
+          position: {
+            lat: 50.1109,
+            lng: 8.6821
+          }, //  Germany
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Frankfurt "
+        });
+        marker19.addListener("click", function() {
+          infowindow19.open(map, marker19);
+        });
+
+        //////////////////////////////////////////
+
+        var contentString19 =
+          '<p style="text-align:center;">Amsterdam Marathon</p>' +
+          '<p style="text-align:center; font-weight:bold; color:red">Amsterdam </p>' +
+          '<p style="text-align:center;">18 October 2020</p>' +
+          '<p style="text-align:center;">Distances: 42, 21, 8</p>' +
+          '<p style="text-align:center;"><a style="text-decoration: none; text-align:center; border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/AMS">Забронировать билет</a></p>';
+        var infowindow19 = new google.maps.InfoWindow({
+          content: contentString19
+        });
+        var marker19 = new google.maps.Marker({
+          position: {
+            lat: 52.3667,
+            lng: 4.8945
+          }, //  Netherlands
+          map: map,
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          },
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          title: "Amsterdam"
+        });
+        marker19.addListener("click", function() {
+          infowindow19.open(map, marker19);
+        });
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAtVwA-lMN9Gwuf1XX4gO_RXwZ3M-9aHs&callback=initMap"
+      async
+      defer
+    ></script>
+  </body>
 </html>
