@@ -1,937 +1,624 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Air Astana & Marathon</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta charset="utf-8" />
+    <title>Styled Map</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 450px;
-        width:100%
+        height: 100%;
       }
-
-      html, body {
-        height: inherit;
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
         margin: 0;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 0;
       }
-
-      /* <iframe width="870px" height="750px" src="http://127.0.0.1:5500/TEST/index%20copy%2010.html"></iframe> */
-      /* above for inserting*/
     </style>
   </head>
-
   <body>
-   
     <div id="map"></div>
-   
 
     <script>
       function initMap() {
-        // Styles a map in night mode.
-        var map = new google.maps.Map(document.getElementById("map"), {
-          center: {
-            lat: 38.5598,
-            lng: 68.787
-          },
-          zoom: 3,
-          disableDefaultUI: true,
-          maxZoom: 5,
-          minZoom: 3,
-
-          zoomControl: true,
-          scaleControl: true,
-          gestureHandling: 'greedy',
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 45.4507, lng: 68.8319 },
+          zoom: 4,
           styles: [
             {
               elementType: "geometry",
               stylers: [
                 {
-                  color: "#f5f5f5"
-                }
-              ]
-            },
-            {
-              elementType: "labels",
-              stylers: [
+                  color: "#f5f5f5",
+                },
                 {
-                  visibility: "off"
-                }
-              ]
+                  visibility: "on",
+                },
+              ],
             },
             {
               elementType: "labels.icon",
               stylers: [
                 {
-                  visibility: "off"
-                }
-              ]
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              elementType: "labels.text",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
             },
             {
               elementType: "labels.text.fill",
               stylers: [
                 {
-                  color: "#616161"
-                }
-              ]
+                  color: "#616161",
+                },
+              ],
             },
             {
               elementType: "labels.text.stroke",
               stylers: [
                 {
-                  color: "#f5f5f5"
-                }
-              ]
-            },
-            {
-              featureType: "administrative.country",
-              elementType: "geometry.fill",
-              stylers: [
-                {
-                  color: "#000000"
+                  color: "#f5f5f5",
                 },
-                {
-                  visibility: "on"
-                }
-              ]
-            },
-            {
-              featureType: "administrative.country",
-              elementType: "geometry.stroke",
-              stylers: [
-                {
-                  color: "#000000"
-                },
-                {
-                  visibility: "on"
-                },
-                {
-                  weight: 0.4
-                }
-              ]
-            },
-            {
-              featureType: "administrative.land_parcel",
-              stylers: [
-                {
-                  visibility: "off"
-                }
-              ]
+              ],
             },
             {
               featureType: "administrative.land_parcel",
               elementType: "labels.text.fill",
               stylers: [
                 {
-                  color: "#bdbdbd"
-                }
-              ]
-            },
-            {
-              featureType: "administrative.neighborhood",
-              stylers: [
-                {
-                  visibility: "off"
-                }
-              ]
-            },
-            {
-              featureType: "administrative.province",
-              stylers: [
-                {
-                  visibility: "off"
-                }
-              ]
+                  color: "#bdbdbd",
+                },
+              ],
             },
             {
               featureType: "poi",
               elementType: "geometry",
               stylers: [
                 {
-                  color: "#eeeeee"
-                }
-              ]
-            },
-            {
-              featureType: "poi",
-              elementType: "labels.text",
-              stylers: [
-                {
-                  visibility: "off"
-                }
-              ]
+                  color: "#eeeeee",
+                },
+              ],
             },
             {
               featureType: "poi",
               elementType: "labels.text.fill",
               stylers: [
                 {
-                  color: "#757575"
-                }
-              ]
-            },
-            {
-              featureType: "poi.business",
-              stylers: [
-                {
-                  visibility: "off"
-                }
-              ]
+                  color: "#757575",
+                },
+              ],
             },
             {
               featureType: "poi.park",
               elementType: "geometry",
               stylers: [
                 {
-                  color: "#e5e5e5"
-                }
-              ]
+                  color: "#e5e5e5",
+                },
+              ],
             },
             {
               featureType: "poi.park",
               elementType: "labels.text.fill",
               stylers: [
                 {
-                  color: "#9e9e9e"
-                }
-              ]
-            },
-            {
-              featureType: "road",
-              stylers: [
-                {
-                  visibility: "off"
-                }
-              ]
+                  color: "#9e9e9e",
+                },
+              ],
             },
             {
               featureType: "road",
               elementType: "geometry",
               stylers: [
                 {
-                  color: "#ffffff"
-                }
-              ]
-            },
-            {
-              featureType: "road",
-              elementType: "labels.icon",
-              stylers: [
-                {
-                  visibility: "off"
-                }
-              ]
+                  color: "#ffffff",
+                },
+              ],
             },
             {
               featureType: "road.arterial",
               elementType: "labels.text.fill",
               stylers: [
                 {
-                  color: "#757575"
-                }
-              ]
+                  color: "#757575",
+                },
+              ],
             },
             {
               featureType: "road.highway",
               elementType: "geometry",
               stylers: [
                 {
-                  color: "#dadada"
-                }
-              ]
+                  color: "#dadada",
+                },
+              ],
             },
             {
               featureType: "road.highway",
               elementType: "labels.text.fill",
               stylers: [
                 {
-                  color: "#616161"
-                }
-              ]
+                  color: "#616161",
+                },
+              ],
             },
             {
               featureType: "road.local",
               elementType: "labels.text.fill",
               stylers: [
                 {
-                  color: "#9e9e9e"
-                }
-              ]
+                  color: "#9e9e9e",
+                },
+              ],
             },
             {
               featureType: "transit.line",
               elementType: "geometry",
               stylers: [
                 {
-                  color: "#e5e5e5"
-                }
-              ]
+                  color: "#e5e5e5",
+                },
+              ],
             },
             {
               featureType: "transit.station",
               elementType: "geometry",
               stylers: [
                 {
-                  color: "#eeeeee"
-                }
-              ]
-            },
-            {
-              featureType: "transit.station.airport",
-              elementType: "geometry.fill",
-              stylers: [
-                {
-                  color: "#ff0000"
+                  color: "#eeeeee",
                 },
-                {
-                  visibility: "on"
-                }
-              ]
-            },
-            {
-              featureType: "transit.station.airport",
-              elementType: "geometry.stroke",
-              stylers: [
-                {
-                  color: "#ff0000"
-                },
-                {
-                  visibility: "on"
-                }
-              ]
+              ],
             },
             {
               featureType: "water",
               elementType: "geometry",
               stylers: [
                 {
-                  color: "#c9c9c9"
-                }
-              ]
+                  color: "#c9c9c9",
+                },
+              ],
             },
             {
               featureType: "water",
               elementType: "geometry.fill",
               stylers: [
                 {
-                  color: "#d0e2f3"
+                  color: "#b6a172",
                 },
-                {
-                  visibility: "on"
-                }
-              ]
+              ],
             },
             {
               featureType: "water",
               elementType: "labels.text.fill",
               stylers: [
                 {
-                  color: "#9e9e9e"
-                }
-              ]
-            }
-          ]
+                  color: "#9e9e9e",
+                },
+              ],
+            },
+          ],
         });
 
-        var contentString =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Almaty Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold; ">Almaty</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">19 April 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 21, 10</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/TSE/destination/ALA">Забронировать билет</a></p>';
+        const FromAlmatyToGlobalFlight = [
+          { lat: 43.325, lng: 76.915 },
+          { lat: 37.5663, lng: 126.9997 }, // Seoul
+          { lat: 43.325, lng: 76.915 },
+          { lat: 22.3193, lng: 114.1694 }, // Hong Kong
+          { lat: 43.325, lng: 76.915 },
+          { lat: 39.9289, lng: 116.3883 }, // Beijing
+          { lat: 43.325, lng: 76.915 },
+          { lat: 13.75, lng: 100.5166 }, // Bangkok
+          { lat: 43.325, lng: 76.915 },
+          { lat: 3.139, lng: 101.6869 }, // Kuala Lumpur
+          { lat: 43.325, lng: 76.915 },
+          { lat: 43.8256, lng: 87.6168 }, // Urumqi
+          { lat: 43.325, lng: 76.915 },
+          { lat: 28.67, lng: 77.23 }, // Delhi
+          { lat: 43.325, lng: 76.915 },
+          { lat: 38.56, lng: 68.7739 }, // Dushanbe
+          { lat: 43.325, lng: 76.915 },
+          { lat: 41.3117, lng: 69.2949 }, // Tashkent
+          { lat: 43.325, lng: 76.915 },
+          { lat: 25.23, lng: 55.28 }, // Dubai
+          { lat: 43.325, lng: 76.915 },
+          { lat: 42.8731, lng: 74.5852 }, // Bishkek
+          { lat: 43.325, lng: 76.915 },
+          { lat: 40.3953, lng: 49.8622 }, // Baku
+          { lat: 43.325, lng: 76.915 },
+          { lat: 41.725, lng: 44.7908 }, // Tbilisi
+          { lat: 43.325, lng: 76.915 },
+          { lat: 36.89, lng: 30.7 }, // Antalya
+          { lat: 43.325, lng: 76.915 },
+          { lat: 55.7522, lng: 37.6155 }, // Moscow
+          { lat: 43.325, lng: 76.915 },
+          { lat: 59.9343, lng: 30.3351 }, // Saint Petersburg
+          { lat: 43.325, lng: 76.915 },
+          { lat: 50.4501, lng: 30.5234 }, // Kiev
+          { lat: 43.325, lng: 76.915 },
+          { lat: 41.105, lng: 29.01 }, // Istambul
+        ];
 
+        const AlmatyGlobalFlights = new google.maps.Polyline({
+          path: FromAlmatyToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        AlmatyGlobalFlights.setMap(map);
 
-          var infowindow = new google.maps.InfoWindow({
-          content: contentString
+        // разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы разры страницы
+
+        const FromAlmatyToDomesticFlight = [
+          { lat: 43.325, lng: 76.915 },
+          { lat: 51.1811, lng: 71.4278 }, // Nur-Sultan
+          { lat: 43.325, lng: 76.915 },
+          { lat: 49.9749, lng: 82.6017 }, // Ust-Kamenogorsk
+          { lat: 43.325, lng: 76.915 },
+          { lat: 44.8488, lng: 65.4823 }, // Kyzylorda
+          { lat: 43.325, lng: 76.915 },
+          { lat: 47.0945, lng: 51.9238 }, // Atyrau
+          { lat: 43.325, lng: 76.915 },
+          { lat: 50.2839, lng: 57.167 }, // Aqtobe
+          { lat: 43.325, lng: 76.915 },
+          { lat: 43.6588, lng: 51.1975 }, // Aqtau
+          { lat: 43.325, lng: 76.915 },
+          { lat: 42.32, lng: 69.595 }, // Shymkent
+        ];
+
+        const AlmatyDomesticFlights = new google.maps.Polyline({
+          path: FromAlmatyToDomesticFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        AlmatyDomesticFlights.setMap(map);
+
+        const FromNurSultanToGlobalFlight = [
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 37.5663, lng: 126.9997 }, // Seoul
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 22.3193, lng: 114.1694 }, // Hong Kong
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 39.9289, lng: 116.3883 }, // Beijing
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 13.75, lng: 100.5166 }, // Bangkok
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 3.139, lng: 101.6869 }, // Kuala Lumpur
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 43.8256, lng: 87.6168 }, // Urumqi
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 28.67, lng: 77.23 }, // Delhi
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 38.56, lng: 68.7739 }, // Dushanbe
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 41.3117, lng: 69.2949 }, // Tashkent
+          //   { lat: 51.1811, lng: 71.4278 },
+          //   { lat: 25.23, lng: 55.28 }, // Dubai
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 42.8731, lng: 74.5852 }, // Bishkek
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 40.3953, lng: 49.8622 }, // Baku
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 41.725, lng: 44.7908 }, // Tbilisi
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 36.89, lng: 30.7 }, // Antalya
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 55.03, lng: 82.96 }, // Novosibirsk
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 54.99, lng: 73.4 }, // Omsk
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 56.85, lng: 60.6 }, // Yekaterinburg
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 55.8304, lng: 49.0661 }, // Kazan
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 55.7522, lng: 37.6155 }, // Moscow
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 59.9343, lng: 30.3351 }, // Saint Petersburg
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 50.4501, lng: 30.5234 }, // Kiev
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 41.105, lng: 29.01 }, // Istambul
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 51.47, lng: 0.4543 }, // London Heathrow
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 48.8667, lng: 2.3333 }, // Paris
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 50.1, lng: 8.675 }, // Frankfurt
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 52.35, lng: 4.9166 }, // Amsterdam
+        ];
+
+        const nurSultanGlobalFlights = new google.maps.Polyline({
+          path: FromNurSultanToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
         });
 
-        var marker = new google.maps.Marker({
+        nurSultanGlobalFlights.setMap(map);
+
+        const FromNurSultanToDomesticFlight = [
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 43.325, lng: 76.915 }, // Almaty
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 49.9749, lng: 82.6017 }, // Ust-Kamenogorsk
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 44.8488, lng: 65.4823 }, // Kyzylorda
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 47.0945, lng: 51.9238 }, // Atyrau
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 50.2839, lng: 57.167 }, // Aqtobe
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 43.6588, lng: 51.1975 }, // Aqtau
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 42.32, lng: 69.595 }, // Shymkent
+          { lat: 51.1811, lng: 71.4278 },
+          { lat: 51.2278, lng: 51.3865 }, // Uralsk
+        ];
+
+        const NurSultanDomesticFlights = new google.maps.Polyline({
+          path: FromNurSultanToDomesticFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        NurSultanDomesticFlights.setMap(map);
+
+        const FromKostanayToGlobalFlight = [
+          { lat: 53.2198, lng: 63.6354 },
+          { lat: 52.366667, lng: 9.716667 }, // hannover
+        ];
+
+        const KostanayGlobalFlights = new google.maps.Polyline({
+          path: FromKostanayToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        KostanayGlobalFlights.setMap(map);
+
+        const FromUralskToGlobalFlight = [
+          { lat: 51.2278, lng: 51.3865 },
+          { lat: 52.35, lng: 4.9166 }, // Amsterdam
+        ];
+
+        const UralskGlobalFlights = new google.maps.Polyline({
+          path: FromUralskToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        UralskGlobalFlights.setMap(map);
+
+        const FromAtyrauToGlobalFlight = [
+          { lat: 51.2278, lng: 51.3865 },
+          { lat: 52.35, lng: 4.9166 }, // Amsterdam
+          { lat: 51.2278, lng: 51.3865 },
+          { lat: 50.1, lng: 8.675 }, // Frankfurt
+          { lat: 51.2278, lng: 51.3865 },
+          { lat: 41.105, lng: 29.01 }, // Istambul
+        ];
+
+        const AtyrauGlobalFlights = new google.maps.Polyline({
+          path: FromAtyrauToGlobalFlight,
+          geodesic: true,
+          strokeColor: "#000000",
+          strokeOpacity: 0.5,
+          strokeWeight: 2,
+        });
+        AtyrauGlobalFlights.setMap(map);
+
+        const image = "https://airastana.com/Portals/2/Plan/Flight-Information/icons/icon.png?ver=2020-08-18-133022-133";
+        const image2 = "https://airastana.com/Portals/2/Plan/Flight-Information/icons/icon2.png?ver=2020-08-18-133022-277";
+
+        const NurSultan = new google.maps.Marker({
           position: {
-            lat: 43.222,
-            lng: 76.8512
-          }, //	Almaty
-          map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+            lat: 51.1811,
+            lng: 71.4278,
           },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Alamty"
-        });
-        marker.addListener("click", function() {
-          infowindow.open(map, marker);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString1 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Astana Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Nur-Sultan</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">6 September 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 10</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/TSE">Забронировать билет</a></p>';
-        var infowindow1 = new google.maps.InfoWindow({
-          content: contentString1
-        });
-        var marker1 = new google.maps.Marker({
-          position: {
-            lat: 51.1605,
-            lng: 71.4704
-          }, //  Nur-Sultan
           map: map,
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Nur-Sultan",
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          }
+          icon: image,
         });
-        marker1.addListener("click", function() {
-          infowindow1.open(map, marker1);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString2 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Shymkent Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Shymkent</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">27 September 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 21, 10, 5 </p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/CIT">Забронировать билет</a></p>';
-        var infowindow2 = new google.maps.InfoWindow({
-          content: contentString2
-        });
-        var marker2 = new google.maps.Marker({
-          position: {
-            lat: 42.3417,
-            lng: 69.5901
-          }, //  Shymkent
+        const Almaty = new google.maps.Marker({
+          position: { lat: 43.325, lng: 76.915 },
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Shymkent"
-        });
-        marker2.addListener("click", function() {
-          infowindow2.open(map, marker2);
+          icon: image,
         });
 
-        //////////////////////////////////////////
-
-        var contentString3 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Istanbul Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Istanbul</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">8 November 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 15, 8</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/IST">Забронировать билет</a></p>';
-        var infowindow3 = new google.maps.InfoWindow({
-          content: contentString3
-        });
-        var marker3 = new google.maps.Marker({
-          position: {
-            lat: 41.0082,
-            lng: 28.9784
-          }, //  Istanbul
+        const Seoul = new google.maps.Marker({
+          position: { lat: 37.5663, lng: 126.9997 }, // Seoul
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "istanbul "
+          icon: image2,
         });
-        marker3.addListener("click", function() {
-          infowindow3.open(map, marker3);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString4 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">New Delhi Marathon </p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Delhi</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">23 February 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 21, 10, 5</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/DEL">Забронировать билет</a></p>';
-        var infowindow4 = new google.maps.InfoWindow({
-          content: contentString4
-        });
-        var marker4 = new google.maps.Marker({
-          position: {
-            lat: 28.7041,
-            lng: 77.1025
-          }, //  Delhi
+        const HongKong = new google.maps.Marker({
+          position: { lat: 22.3193, lng: 114.1694 }, // Hong Kong
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Delhi "
+          icon: image2,
         });
-        marker4.addListener("click", function() {
-          infowindow4.open(map, marker4);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString5 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Beijing Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Beijing</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">TBC 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/PEK">Забронировать билет</a></p>';
-        var infowindow5 = new google.maps.InfoWindow({
-          content: contentString5
-        });
-        var marker5 = new google.maps.Marker({
-          position: {
-            lat: 39.9042,
-            lng: 116.4074
-          }, //  Beijing
+        const Beijing = new google.maps.Marker({
+          position: { lat: 39.9289, lng: 116.3883 }, // Beijing
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Beijing "
+          icon: image2,
         });
-        marker5.addListener("click", function() {
-          infowindow5.open(map, marker5);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString6 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Seoul Marathon </p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Seoul</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">22 March 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 10</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/ICN">Забронировать билет</a></p>';
-        var infowindow6 = new google.maps.InfoWindow({
-          content: contentString6
-        });
-        var marker6 = new google.maps.Marker({
-          position: {
-            lat: 37.5665,
-            lng: 126.978
-          }, //  Seoul
+        const Bangkok = new google.maps.Marker({
+          position: { lat: 13.75, lng: 100.5166 }, // Bangkok
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Seoul "
+          icon: image2,
         });
-        marker6.addListener("click", function() {
-          infowindow6.open(map, marker6);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString7 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Bangkok Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Bangkok</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">TBC November 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 21, 10, 5</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/BKK">Забронировать билет</a></p>';
-        var infowindow7 = new google.maps.InfoWindow({
-          content: contentString7
-        });
-        var marker7 = new google.maps.Marker({
-          position: {
-            lat: 13.7563,
-            lng: 100.5018
-          }, //  Bangkok
+        const KualaLumpur = new google.maps.Marker({
+          position: { lat: 3.139, lng: 101.6869 }, // Kuala Lumpur
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Bangkok "
+          icon: image2,
         });
-        marker7.addListener("click", function() {
-          infowindow7.open(map, marker7);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString8 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Kuala Lumpur Standard Chartered Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Kuala-Lumpur</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">TBC September 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 21, 10, 5</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/KUL">Забронировать билет</a></p>';
-        var infowindow8 = new google.maps.InfoWindow({
-          content: contentString8
-        });
-        var marker8 = new google.maps.Marker({
-          position: {
-            lat: 3.139,
-            lng: 101.6869
-          }, //  Kuala-Lumpur
+        const Urumqi = new google.maps.Marker({
+          position: { lat: 43.8256, lng: 87.6168 }, // Urumqi
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Kuala-Lumpur "
+          icon: image2,
         });
-        marker8.addListener("click", function() {
-          infowindow8.open(map, marker8);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString9 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Wizz Air Kyiv City Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Kyev</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">24-25 October 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 21, 10, 4.2</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/KBP">Забронировать билет</a></p>';
-        var infowindow9 = new google.maps.InfoWindow({
-          content: contentString9
-        });
-        var marker9 = new google.maps.Marker({
-          position: {
-            lat: 50.4501,
-            lng: 30.5234
-          }, //  Kyev
+        const Delhi = new google.maps.Marker({
+          position: { lat: 28.67, lng: 77.23 }, // Delhi
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Kyev "
+          icon: image2,
         });
-        marker9.addListener("click", function() {
-          infowindow9.open(map, marker9);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString10 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Istanbul Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Istanbul</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">8 November 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 15, 8</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/TBS">Забронировать билет</a></p>';
-        var infowindow10 = new google.maps.InfoWindow({
-          content: contentString10
-        });
-        var marker10 = new google.maps.Marker({
-          position: {
-            lat: 41.7151,
-            lng: 44.8271
-          }, //  Tbilisi
+        const Dushanbe = new google.maps.Marker({
+          position: { lat: 38.56, lng: 68.7739 }, // Dushanbe
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Tbilisi "
+          icon: image2,
         });
-        marker10.addListener("click", function() {
-          infowindow10.open(map, marker10);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString11 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Moscow Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Moscow</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">20 September 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 10</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/MOW">Забронировать билет</a></p>';
-        var infowindow11 = new google.maps.InfoWindow({
-          content: contentString11
-        });
-        var marker11 = new google.maps.Marker({
-          position: {
-            lat: 55.7558,
-            lng: 37.6173
-          }, //  Moscow
+        const Tashkent = new google.maps.Marker({
+          position: { lat: 41.3117, lng: 69.2949 }, // Tashkent
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Moscow "
+          icon: image2,
         });
-        marker11.addListener("click", function() {
-          infowindow11.open(map, marker11);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString12 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">White Nights International Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Saint Petersburg</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">28 June 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 10</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/LED">Забронировать билет</a></p>';
-        var infowindow12 = new google.maps.InfoWindow({
-          content: contentString12
-        });
-        var marker12 = new google.maps.Marker({
-          position: {
-            lat: 59.9343,
-            lng: 30.3351
-          }, //  Saint Petersburg
+        const Dubai = new google.maps.Marker({
+          position: { lat: 25.23, lng: 55.28 }, // Dubai
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Saint Petersburg "
+          icon: image2,
         });
-        marker12.addListener("click", function() {
-          infowindow12.open(map, marker12);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString13 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Siberian International Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Omsk </p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">1 August 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 21, 10, 3</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/OMS">Забронировать билет</a></p>';
-        var infowindow13 = new google.maps.InfoWindow({
-          content: contentString13
-        });
-        var marker13 = new google.maps.Marker({
-          position: {
-            lat: 54.9885,
-            lng: 73.3242
-          }, //  Omsk
+        const Bishkek = new google.maps.Marker({
+          position: { lat: 42.8731, lng: 74.5852 }, // Bishkek
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Omsk "
+          icon: image2,
         });
-        marker13.addListener("click", function() {
-          infowindow13.open(map, marker13);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString14 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Baku Marathon </p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Baku </p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">1 May 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 21</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/GYD">Забронировать билет</a></p>';
-        var infowindow14 = new google.maps.InfoWindow({
-          content: contentString14
-        });
-        var marker14 = new google.maps.Marker({
-          position: {
-            lat: 40.4093,
-            lng: 49.8671
-          }, //  Azerbaijan
+        const Baku = new google.maps.Marker({
+          position: { lat: 40.3953, lng: 49.8622 }, // Baku
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Azerbaijan "
+          icon: image2,
         });
-        marker14.addListener("click", function() {
-          infowindow14.open(map, marker14);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString15 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Standard Chartered Dubai Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Dubai</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">24 January 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 10, 4</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/DXB">Забронировать билет</a></p>';
-        var infowindow15 = new google.maps.InfoWindow({
-          content: contentString15
-        });
-        var marker15 = new google.maps.Marker({
-          position: {
-            lat: 25.2048,
-            lng: 55.2708
-          }, //  UAE
+        const Tbilisi = new google.maps.Marker({
+          position: { lat: 41.725, lng: 44.7908 }, // Tbilisi
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Dubai"
+          icon: image2,
         });
-        marker15.addListener("click", function() {
-          infowindow15.open(map, marker15);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString16 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Dushanbe International Half Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Dushanbe</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">18 April 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 21</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/DYU">Забронировать билет</a></p>';
-        var infowindow16 = new google.maps.InfoWindow({
-          content: contentString16
-        });
-        var marker16 = new google.maps.Marker({
-          position: {
-            lat: 38.5598,
-            lng: 68.787
-          }, //  Tajikistan
+        const Antalya = new google.maps.Marker({
+          position: { lat: 36.89, lng: 30.7 }, // Antalya
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Dushanbe"
+          icon: image2,
         });
-        marker16.addListener("click", function() {
-          infowindow16.open(map, marker16);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString17 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Virgin Money London Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">London</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">26 April 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/LHR">Забронировать билет</a></p>';
-        var infowindow17 = new google.maps.InfoWindow({
-          content: contentString17
-        });
-        var marker17 = new google.maps.Marker({
-          position: {
-            lat: 51.5074,
-            lng: 0.1278
-          }, //  London
+        const Moscow = new google.maps.Marker({
+          position: { lat: 55.7522, lng: 37.6155 }, // Moscow
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "London"
+          icon: image2,
         });
-        marker17.addListener("click", function() {
-          infowindow17.open(map, marker17);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString18 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Schneider Electric Marathon de Paris</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Paris</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">5 April 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/CDG">Забронировать билет</a></p>';
-        var infowindow18 = new google.maps.InfoWindow({
-          content: contentString18
-        });
-        var marker18 = new google.maps.Marker({
-          position: {
-            lat: 48.8566,
-            lng: 2.3522
-          }, //  France
+        const SaintPetersburg = new google.maps.Marker({
+          position: { lat: 59.9343, lng: 30.3351 }, // Saint Petersburg
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Paris"
+          icon: image2,
         });
-        marker18.addListener("click", function() {
-          infowindow18.open(map, marker18);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString19 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Frankfurt Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Frankfurt </p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">25 October 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/FRA">Забронировать билет</a></p>';
-        var infowindow19 = new google.maps.InfoWindow({
-          content: contentString19
-        });
-        var marker19 = new google.maps.Marker({
-          position: {
-            lat: 50.1109,
-            lng: 8.6821
-          }, //  Germany
+        const Kiev = new google.maps.Marker({
+          position: { lat: 50.4501, lng: 30.5234 }, // Kiev
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Frankfurt "
+          icon: image2,
         });
-        marker19.addListener("click", function() {
-          infowindow19.open(map, marker19);
-        });
-
-        //////////////////////////////////////////
-
-        var contentString19 =
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Amsterdam Marathon</p>' +
-          '<p style="color:#e70000; text-align:center; font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif font-weight:bold;">Amsterdam </p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">18 October 2020</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif">Distances: 42, 21, 8</p>' +
-          '<p style="text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif"><a style="text-decoration: none; text-align:center; color: #6c6c6c; font-family: Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif border-bottom: 1px solid rgb(0, 0, 0); color:rgb(0, 0, 0)" href="https://airastana.com/kaz/en-us/Plan/Book-Flights/origin/ALA/destination/AMS">Забронировать билет</a></p>';
-        var infowindow19 = new google.maps.InfoWindow({
-          content: contentString19
-        });
-        var marker19 = new google.maps.Marker({
-          position: {
-            lat: 52.3667,
-            lng: 4.8945
-          }, //  Netherlands
+        const Istambul = new google.maps.Marker({
+          position: { lat: 41.105, lng: 29.01 }, // Istambul
           map: map,
-          icon: {
-            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-          },
-          draggable: false,
-          animation: google.maps.Animation.DROP,
-          title: "Amsterdam"
+          icon: image2,
         });
-        marker19.addListener("click", function() {
-          infowindow19.open(map, marker19);
+        const Novosibirsk = new google.maps.Marker({
+          position: { lat: 55.03, lng: 82.96 }, // Novosibirsk
+          map: map,
+          icon: image2,
         });
+        const Omsk = new google.maps.Marker({
+          position: { lat: 54.99, lng: 73.4 }, // Omsk
+          map: map,
+          icon: image2,
+        });
+        const Yekaterinburg = new google.maps.Marker({
+          position: { lat: 56.85, lng: 60.6 }, // Yekaterinburg
+          map: map,
+          icon: image2,
+        });
+        const Kazan = new google.maps.Marker({
+          position: { lat: 55.8304, lng: 49.0661 }, // Kazan
+          map: map,
+          icon: image2,
+        });
+        const LondonHeathrow = new google.maps.Marker({
+          position: { lat: 51.47, lng: 0.4543 }, // London Heathrow
+          map: map,
+          icon: image2,
+        });
+        const Paris = new google.maps.Marker({
+          position: { lat: 48.8667, lng: 2.3333 }, // Paris
+          map: map,
+          icon: image2,
+        });
+        const Frankfurt = new google.maps.Marker({
+          position: { lat: 50.1, lng: 8.675 }, // Frankfurt
+          map: map,
+          icon: image2,
+        });
+        const Amsterdam = new google.maps.Marker({
+          position: { lat: 52.35, lng: 4.9166 }, // Amsterdam
+          map: map,
+          icon: image2,
+        });
+        const hannover = new google.maps.Marker({
+          position: { lat: 52.366667, lng: 9.716667 }, // hannover
+          map: map,
+          icon: image2,
+        });
+        const UstKamenogorsk = new google.maps.Marker({
+          position: { lat: 49.9749, lng: 82.6017 }, // Ust-Kamenogorsk
+          map: map,
+          icon: image2,
+        });
+        const Kyzylorda = new google.maps.Marker({
+          position: { lat: 44.8488, lng: 65.4823 }, // Kyzylorda
+          map: map,
+          icon: image2,
+        });
+        const Atyrau = new google.maps.Marker({
+          position: { lat: 47.0945, lng: 51.9238 }, // Atyrau
+          map: map,
+          icon: image2,
+        });
+        const Aqtobe = new google.maps.Marker({
+          position: { lat: 50.2839, lng: 57.167 }, // Aqtobe
+          map: map,
+          icon: image2,
+        });
+        const Aqtau = new google.maps.Marker({
+          position: { lat: 43.6588, lng: 51.1975 }, // Aqtau
+          map: map,
+          icon: image2,
+        });
+        const Shymkent = new google.maps.Marker({
+          position: { lat: 42.32, lng: 69.595 }, // Shymkent
+          map: map,
+          icon: image2,
+        });
+        const Uralsk = new google.maps.Marker({
+          position: { lat: 51.2278, lng: 51.3865 }, // Uralsk
+          map: map,
+          icon: image2,
+        });                
       }
     </script>
+
+    <!-- Replace following script src -->
+    <script src="/maps/documentation/javascript/examples/markerclusterer/markerclustererplus@4.0.1.min.js"></script>
     <script
-      async
       defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAtVwA-lMN9Gwuf1XX4gO_RXwZ3M-9aHs&callback=initMap"
-      async
-      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWawW_kOFE7YBVVdjQMq_fkBEA9Erb9Ks&callback=initMap"
     ></script>
   </body>
 </html>
